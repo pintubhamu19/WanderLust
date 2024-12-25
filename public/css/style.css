@@ -24,6 +24,31 @@ body {
     color: #222222 !important;
 }
 
+.navbar .search-btn {
+    background-color: #Fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+}
+
+.navbar .search-btn:hover {
+    background-color: #Fe424d;
+    color: #fff;
+}
+
+.navbar .search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.navbar .search-inp {
+    text-align: center;
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    font-size: 1rem;
+
+}
+
 /* Footer */
 .f-info-links a {
     text-decoration: none;
@@ -59,6 +84,121 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.tab-box {
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+}
+
+.tab-box.dragging {
+    scroll-behavior: auto;
+    cursor: grab;
+}
+
+#filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    width: 60vw;
+    border-radius: 20px;
+    border: 1px solid lightcyan;
+    padding: 10px 25px;
+}
+
+.filter {
+    margin-right: 1rem;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    text-align: center;
+    opacity: 0.7;
+    white-space: nowrap;
+    transition: 0.1s;
+
+}
+
+.filter:hover {
+    opacity: 1;
+    cursor: pointer;
+    font-size: 1.2rem;
+    box-shadow: 0.1px 0.1px 0 #222222;
+    border-radius: 20%;
+    border: 0.1px solid #222222;
+    padding: 2px;
+}
+
+.filter p {
+    font-size: 0.8rem;
+}
+
+#filters .icon {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 120px;
+    display: flex;
+    align-items: center;
+
+
+}
+
+.icon:first-child {
+    left: 0;
+    display: none;
+    background: linear-gradient(90deg, #f5f2f2 60%, transparent);
+}
+
+.icon:last-child {
+    right: 0;
+    /* Adjusted to place the right icon on the right side */
+    justify-content: flex-end;
+    background: linear-gradient(-90deg, #f5f2f2 60%, transparent);
+}
+
+#filters .icon i {
+    color: #222222 !important;
+    background-color: #dadada !important;
+    border-radius: 35%;
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.icon i {
+    color: #f5f3f3 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.tax-info {
+    display: none;
+}
+
+.tax-toggle {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 20vw;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-left: 5rem;
+    flex-wrap: nowrap;
 }
 
 .listing-card {
@@ -112,8 +252,12 @@ body {
 }
 
 /* Show Page */
+.show-page {
+    width: 100%;
+}
+
 .show-img {
-    height: 30vh;
+    height: 40vh;
 }
 
 .btns {
@@ -128,5 +272,111 @@ body {
 /* Map */
 #map {
     height: 400px;
-    width: 100vh;
+    width: 100%;
+}
+
+.marker-icon {
+    width: 80px;
+    height: 80px;
+    background-color: rgb(209, 170, 177);
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.inner-icon {
+    height: 32px;
+    width: 32px;
+    background-color: #fe424d;
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+
+}
+
+.custom-popup {
+    background-color: blue;
+    padding: 10px;
+    border-radius: 5px;
+    color: #FFF;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+
+}
+
+.custom-marker {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mapboxgl-popup-content {
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    padding: 0 0 0 !important;
+    pointer-events: auto;
+    position: relative;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .navbar {
+        background-color: #fff;
+        height: 20%;
+    }
+
+    .search-inp {
+        font-size: 0.5rem;
+        width: 70%;
+        margin-top: 1rem !important;
+
+    }
+
+    .search-btn {
+        width: 5.5rem !important;
+        font-size: 0.5rem;
+        margin-top: 1rem !important;
+        padding: 0px 10px !important;
+    }
+
+    .search-btn i {
+        font-size: 0.7rem;
+    }
+
+    .search-btn span {
+        font-size: 0.8rem;
+    }
+
+
+
+    #map {
+        height: 400px;
+        width: 100%;
+    }
+
+    .show-page .card-img-top {
+        width: 30vh !important;
+        height: 25vh !important;
+    }
+
+
+
+
+}
+
+@media (max-width:992px) {
+    .tax-toggle label {
+        display: none;
+    }
+
+    .tax-toggle {
+        width: 55px;
+        height: 55px;
+        text-align: center;
+        padding: 10px;
+        padding-right: 20px;
+    }
 }

@@ -7,7 +7,24 @@ const map = new mapboxgl.Map({
   zoom: 9, // starting zoom
 });
 
-const marker = new mapboxgl.Marker({ color: "red" })
+//  console.log(listing.geometry);
+const customMarker = document.createElement('div');
+customMarker.className = 'custom-marker';
+customMarker.innerHTML = '<div class="marker-icon"><div class="inner-icon"><i class="fa-solid fa-location-dot"></i></div></div>';
+
+// Change the inner HTML of the icon on hover
+customMarker.addEventListener('mouseenter', function () {
+    this.classList.add('hovered');
+    this.querySelector('.inner-icon').innerHTML = '<i class="fa-solid fa-street-view"></i>';
+});
+
+// Reset the inner HTML when mouse leaves
+customMarker.addEventListener('mouseleave', function () {
+    this.classList.remove('hovered');
+    this.querySelector('.inner-icon').innerHTML = '<i class="fa-solid fa-location-dot"></i>'; 
+});
+
+const marker = new mapboxgl.Marker( { element: customMarker})
   .setLngLat(coordinates)
   .setPopup(
     new mapboxgl.Popup({ offset: 25 }).setHTML(
@@ -16,25 +33,4 @@ const marker = new mapboxgl.Marker({ color: "red" })
   )
   .addTo(map);
 
-// map.on('load', () => {
-//     // Load an image from an external URL.
-//     map.loadImage(
-//       'https://docs.mapbox.com/mapbox-gl-js/assets/cat.png',
-//         (error, image) => {
-//             if (error) throw error;
 
-//             // Add the image to the map style.
-//             map.addImage('cat', image);})
-        
-// });
-
-// function createCustomMarker() {
-//   var markerDiv = document.createElement('div');
-//   markerDiv.style.backgroundImage = "url('https://st4.depositphotos.com/20524830/25861/i/1600/depositphotos_258612992-stock-photo-home-raster-icon-rounded-flat.jpg')";
-//   markerDiv.style.width = "40px";
-//   markerDiv.style.height = "40px";
-//   // markerDiv.style.borderRadius = 50;
-//   // element: createCustomMarker()
-//   markerDiv.style.backgroundSize = "contain";
-//   return markerDiv;
-// }

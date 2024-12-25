@@ -43,10 +43,24 @@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <label for="price" class="form-label">Location</label>
+                    <label for="location" class="form-label">Location</label>
                     <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control"
                         required>
                     <div class="invalid-feedback">Location name should be valid</div>
+                </div>
+                <div class="mb-3 ">
+                    <label for="category">Category:</label>
+                    <select name="listing[category]" id="category" class="form-select form-select-sm">
+                        <option value="Farm">Farm</option>
+                        <option value="Swimming pool">Swimming Pool</option>
+                        <option value="Rooms">Rooms</option>
+                        <option value="Castles">Castles</option>
+                        <option value="Camping">Camping</option>
+                        <option value="Arctic">Arctic</option>
+                        <option value="Temple">Temple</option>
+                        <option value="Mountains">Mountains</option>
+                        <option value="Iconic cities">Iconic cities</option>
+                    </select>
                 </div>
                 <button class="btn btn-dark edit-btn mt-3">Edit</button>
             </form>
